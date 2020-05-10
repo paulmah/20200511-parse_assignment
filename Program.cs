@@ -17,9 +17,7 @@ namespace c_
                 Console.WriteLine("     Option 2: Enter a string you would like to replace with a blank space "); //Option  not necessary, but helps with user understanding
                 Console.WriteLine("     Option 3: End Program"); //Option  not necessary, but helps with user understanding
                 Console.WriteLine("You selected file: " + filename ); // traceon
-
                 string option = Console.ReadLine();
-
                 Console.WriteLine("selected: " + option); // traceon
                 switch(option){
                     case "1": 
@@ -38,6 +36,11 @@ namespace c_
                             Console.WriteLine("Please enter the string you would like to replace with a space");
                             string replacement = Console.ReadLine();
                             Console.WriteLine("You replacement string is: " + replacement );
+                            string file_text = File.ReadAllText( filename );
+                            file_text = file_text.Replace( replacement, " " );
+                            Console.WriteLine( file_text );
+                            File.WriteAllText( "input_file1.txt", file_text );
+
 
                         } else {
                             Console.WriteLine("Please choose 1 first and enter a valid filename first" );
